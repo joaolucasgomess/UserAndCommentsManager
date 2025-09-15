@@ -1,2 +1,0 @@
-global using UserAndCommentsManager.Extentions;
-global using UserAndCommentsManager.Endpoints;
