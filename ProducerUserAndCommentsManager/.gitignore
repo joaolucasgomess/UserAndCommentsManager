@@ -1,0 +1,7 @@
+Folder.DotSettings.user
+/obj
+/config
+/bin
+/.idea
+*.db
+launchSettings.json
