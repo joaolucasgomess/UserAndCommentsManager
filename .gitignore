@@ -1,1 +1,10 @@
-/.idea
+*.user
+
+.idea/
+.vs/
+.vscode/
+
+bin/
+obj/
+
+.env

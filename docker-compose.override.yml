@@ -1,29 +1,32 @@
 services:
   producer:
-    volumes:
-      - ./:/src/
-      - ~/.nuget/packages:/root/.nuget/packages:ro
     env_file:
       - ./.env
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ConnectionStrings__Default=User ID=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Host=postgres;Port=5432;Database=${POSTGRES_DB};
+    volumes:
+      - ./ProducerUserAndCommentsManager:/src
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+      - ~/.vsdbg:/remote_debugger:rw
     depends_on:
       - rabbitmq
-    command: >
-      sh -c "dotnet watch --project /src run --urls=http://0.0.0.0:8080"
+      - db
     ports:
       - 5000:8080
   
   consumer:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
     volumes:
-      - ./:/src/
+      - ./ConsumerUserAndCommmentsManager:/src
       - ~/.nuget/packages:/root/.nuget/packages:ro
+      - ~/.vsdbg:/remote_debugger:rw
     depends_on:
       - rabbitmq
       - producer
-    command: >
-      sh -c "dotnet watch --project /src run --urls=http://0.0.0.0:8080"
     ports:
       - 5001:8080
   

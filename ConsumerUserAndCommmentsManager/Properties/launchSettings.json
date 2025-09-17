@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ConsumerUserAndCommmentsManager": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

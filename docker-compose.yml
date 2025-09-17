@@ -2,7 +2,7 @@ services:
   producer:
     container_name: producer-user-manager-container
     build:
-      context: ../ProducerUserAndCommentsManager
+      context: ./ProducerUserAndCommentsManager
       dockerfile: Dockerfile
     ports:
       - 8080:8080
@@ -14,7 +14,7 @@ services:
   consumer:
     container_name: consumer-user-manager-container
     build:
-      context: ../ConsumerUserAndCommmentsManager
+      context: ./ConsumerUserAndCommmentsManager
       dockerfile: Dockerfile
     depends_on:
       - producer

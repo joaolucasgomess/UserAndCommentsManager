@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+        "serviceActions": {
+            "producer": "StartDebugging",
+            "consumer": "StartDebugging"
+        },
+        "composeFiles": [
+            "docker-compose.yml",
+            "docker-compose.override.yml"
+        ]
+    }
+  }
+}

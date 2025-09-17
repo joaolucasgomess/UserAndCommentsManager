@@ -1,2 +1,13 @@
-/bin
-/obj
+.git
+.gitignore
+
+*.user
+
+.idea/
+.vs/
+.vscode/
+
+bin/
+obj/
+
+.env
