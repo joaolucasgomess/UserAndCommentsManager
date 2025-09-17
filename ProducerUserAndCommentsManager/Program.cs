@@ -7,4 +7,6 @@ var app = builder.Build();
 app.MapUserEndpoints()
     .MapCommentsEndpoint();
 
+app.UseServices();
+
 app.Run();

@@ -21,7 +21,7 @@ public static class UserEndpoints
             
             db.Add(user);
             var result = await db.SaveChangesAsync();
-
+            
             if (result == 0)
                 return Results.BadRequest();
             

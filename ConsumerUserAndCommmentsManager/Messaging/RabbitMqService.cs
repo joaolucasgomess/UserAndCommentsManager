@@ -21,7 +21,7 @@ public class RabbitMqService : IMessageBusService, IAsyncDisposable
     
     public static async Task<IMessageBusService> CreateAsync()
     {
-        var factory = new ConnectionFactory { HostName = "localhost"};
+        var factory = new ConnectionFactory { HostName = "rabbitmq"};
         var connection = await factory.CreateConnectionAsync();
         var channel = await connection.CreateChannelAsync();
         

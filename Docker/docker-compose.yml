@@ -1,0 +1,26 @@
+services:
+  producer:
+    container_name: producer-user-manager-container
+    build:
+      context: ../ProducerUserAndCommentsManager
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    networks:
+      user-manager-networks:
+        
+  consumer:
+    container_name: consumer-user-manager-container
+    build:
+      context: ../ConsumerUserAndCommmentsManager
+      dockerfile: Dockerfile
+    depends_on:
+      - producer
+    networks:
+      user-manager-networks:
+      
+networks:
+  user-manager-networks:
+    driver: bridge

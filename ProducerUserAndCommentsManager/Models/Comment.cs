@@ -18,7 +18,7 @@ public class Comment
     public string Message { get; private set; }
     
     [Required]
-    public DateTime CreatedAt { get; private set; } = DateTime.Now;
+    public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
     
     public DateTime? UpdatedAt { get; set; }
 
